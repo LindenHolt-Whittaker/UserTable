@@ -4,6 +4,8 @@
 
 A modular vanilla JavaScript application with Tailwind CSS that displays user data from DummyJSON API with pagination, search, and sorting capabilities.
 
+![User Directory Screenshot](images/screenshot.png)
+
 ## Usage
 
 1. **Browse Users**: Navigate through pages using pagination controls
