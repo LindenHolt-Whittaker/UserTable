@@ -1,5 +1,7 @@
 # User Directory Application
 
+**[🔗 View Live Demo](https://lindenholt-whittaker.github.io/UserTable/)**
+
 A modular vanilla JavaScript application with Tailwind CSS that displays user data from DummyJSON API with pagination, search, and sorting capabilities.
 
 ## Usage
