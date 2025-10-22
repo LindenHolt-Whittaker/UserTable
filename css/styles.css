@@ -74,12 +74,3 @@
 .notification.show {
     transform: translateY(0);
 }
-
-/* Search input focus */
-.search-input {
-    transition: all 0.2s ease;
-}
-
-.search-input:focus {
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-}

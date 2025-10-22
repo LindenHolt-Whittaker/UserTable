@@ -89,7 +89,7 @@ export class UserDetailsModal {
                             <div class="space-y-2 text-sm">
                                 <div class="flex justify-between">
                                     <span class="text-gray-600">Email:</span>
-                                    <span class="font-medium text-blue-600 truncate max-w-[180px]">${user.email}</span>
+                                    <span class="font-medium text-blue-600 truncate max-w-[180px]" title="${user.email}">${user.email}</span>
                                 </div>
                                 <div class="flex justify-between">
                                     <span class="text-gray-600">Phone:</span>
@@ -97,7 +97,7 @@ export class UserDetailsModal {
                                 </div>
                                 <div class="flex justify-between">
                                     <span class="text-gray-600">University:</span>
-                                    <span class="font-medium truncate max-w-[180px]">${user.university}</span>
+                                    <span class="font-medium truncate max-w-[180px]" title="${user.university}">${user.university}</span>
                                 </div>
                             </div>
                         </div>
