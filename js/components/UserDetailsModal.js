@@ -3,9 +3,10 @@ import { Modal } from './Modal.js';
 import { getIcon, IconNames } from '../services/IconService.js';
 
 export class UserDetailsModal {
-    constructor() {
+    constructor(showNotification) {
         this.modal = new Modal();
         this.currentUser = null;
+        this.showNotification = showNotification || (() => {});
     }
 
     open(user) {
@@ -187,16 +188,14 @@ export class UserDetailsModal {
         closeBtn?.addEventListener('click', () => this.close());
         cancelBtn?.addEventListener('click', () => this.close());
 
-        // Edit button - simple alert
         const editBtn = this.modal.modal.querySelector('.btn-edit');
         editBtn?.addEventListener('click', () => {
-            alert(`Editing functionality currently not available for: ${this.currentUser.firstName} ${this.currentUser.lastName} (ID: ${this.currentUser.id})`);
+            this.showNotification('Edit functionality is not yet available', 'info');
         });
 
-        // Delete button - simple alert
         const deleteBtn = this.modal.modal.querySelector('.btn-delete');
         deleteBtn?.addEventListener('click', () => {
-            alert(`Delete functionality currently not available for: ${this.currentUser.firstName} ${this.currentUser.lastName} (ID: ${this.currentUser.id})`);
+            this.showNotification('Delete functionality is not yet available', 'info');
         });
     }
 

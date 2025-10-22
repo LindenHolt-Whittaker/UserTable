@@ -3,6 +3,7 @@ export class Modal {
     constructor() {
         this.modal = null;
         this.isOpen = false;
+        this.escKeyListener = null;
         this.createModal();
     }
 
@@ -33,11 +34,12 @@ export class Modal {
         overlay.addEventListener('click', () => this.close());
 
         // ESC key to close
-        document.addEventListener('keydown', (e) => {
+        this.escKeyListener = (e) => {
             if (e.key === 'Escape' && this.isOpen) {
                 this.close();
             }
-        });
+        };
+        document.addEventListener('keydown', this.escKeyListener);
     }
 
     open(content) {
@@ -60,6 +62,10 @@ export class Modal {
     }
 
     destroy() {
+        if (this.escKeyListener) {
+            document.removeEventListener('keydown', this.escKeyListener);
+            this.escKeyListener = null;
+        }
         this.modal.remove();
     }
 }

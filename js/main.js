@@ -48,7 +48,7 @@ class UserDirectoryApp {
             await this.loadUsers();
         };
         
-        this.userDetailsModal = new UserDetailsModal();
+        this.userDetailsModal = new UserDetailsModal((message, type) => this.showNotification(message, type));
         
         this.pagination = new Pagination({
             itemsPerPage: 10,
@@ -89,7 +89,7 @@ class UserDirectoryApp {
             
             let result;
             if (this.isSearchMode && this.currentSearchTerm) {
-                result = await this.userService.searchUsersPaginated(this.currentSearchTerm, options);
+                result = await this.userService.searchUsers(this.currentSearchTerm, options);
             } else {
                 result = await this.userService.fetchUsers(options);
             }

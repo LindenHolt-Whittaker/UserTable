@@ -5,17 +5,23 @@ export class UserService {
         this.cache = new Map();
     }
 
-    // Fetch users with pagination
-    async fetchUsers(options = {}) {
+    async fetchData(searchQuery, options = {}) {
         const { limit = 10, skip = 0, sortBy = '', order = 'asc', useCache = true } = options;
-        const cacheKey = `users_${limit}_${skip}_${sortBy}_${order}`;
+        
+        const isSearch = !!searchQuery;
+        const cacheKey = isSearch
+            ? `search_${searchQuery}_${limit}_${skip}_${sortBy}_${order}`
+            : `users_${limit}_${skip}_${sortBy}_${order}`;
         
         if (useCache && this.cache.has(cacheKey)) {
             return this.cache.get(cacheKey);
         }
 
         try {
-            let url = `${this.baseUrl}/users?limit=${limit}&skip=${skip}`;
+            let url = isSearch
+                ? `${this.baseUrl}/users/search?q=${encodeURIComponent(searchQuery)}&limit=${limit}&skip=${skip}`
+                : `${this.baseUrl}/users?limit=${limit}&skip=${skip}`;
+            
             if (sortBy) {
                 url += `&sortBy=${sortBy}&order=${order}`;
             }
@@ -36,45 +42,18 @@ export class UserService {
             this.cache.set(cacheKey, result);
             return result;
         } catch (error) {
-            console.error('Error fetching users:', error);
-            throw new Error('Failed to fetch users. Please try again later.');
+            const action = isSearch ? 'searching' : 'fetching';
+            console.error(`Error ${action} users:`, error);
+            throw new Error(`Failed to ${isSearch ? 'search' : 'fetch'} users. Please try again later.`);
         }
     }
 
-    // Search users with pagination
-    async searchUsersPaginated(query, options = {}) {
-        const { limit = 10, skip = 0, sortBy = '', order = 'asc' } = options;
-        const cacheKey = `search_${query}_${limit}_${skip}_${sortBy}_${order}`;
-        
-        if (this.cache.has(cacheKey)) {
-            return this.cache.get(cacheKey);
-        }
+    async fetchUsers(options = {}) {
+        return this.fetchData(null, options);
+    }
 
-        try {
-            let url = `${this.baseUrl}/users/search?q=${encodeURIComponent(query)}&limit=${limit}&skip=${skip}`;
-            if (sortBy) {
-                url += `&sortBy=${sortBy}&order=${order}`;
-            }
-            
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            
-            const data = await response.json();
-            const result = {
-                users: data.users || [],
-                total: data.total || 0,
-                limit: data.limit || limit,
-                skip: data.skip || skip
-            };
-            
-            this.cache.set(cacheKey, result);
-            return result;
-        } catch (error) {
-            console.error('Error searching users:', error);
-            throw new Error('Failed to search users. Please try again later.');
-        }
+    async searchUsers(query, options = {}) {
+        return this.fetchData(query, { ...options, useCache: true });
     }
 
     clearCache() {
