@@ -1,0 +1,11 @@
+{
+  "name": "user-table-app",
+  "version": "1.0.0",
+  "description": "Vanilla JS User Directory Application with Tailwind CSS",
+  "scripts": {
+    "dev": "npx http-server -p 8080 -c-1"
+  },
+  "keywords": ["vanilla-js", "tailwind", "user-directory", "es6-modules"],
+  "author": "",
+  "license": "MIT"
+}
