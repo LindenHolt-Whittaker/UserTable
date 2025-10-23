@@ -74,7 +74,7 @@ export class UserTable {
                                     </div>
                                 </div>
                             </td>
-                            <td class="px-1 py-4 whitespace-nowrap text-sm text-gray-500">${user.email}</td>
+                            <td class="px-1 py-4 whitespace-nowrap text-sm text-gray-500 truncate" title="${user.email}">${user.email}</td>
                             <td class="hidden sm:table-cell pl-1 pr-3 py-4 whitespace-nowrap text-sm text-gray-900">${user.company.name}</td>
                             <td class="hidden lg:table-cell pl-1 pr-3 py-4 whitespace-nowrap text-sm text-gray-500">${user.company.title}</td>
                             <td class="hidden xl:table-cell px-1 py-4 whitespace-nowrap text-sm text-gray-500">${user.role}</td>
@@ -129,7 +129,7 @@ export class UserTable {
     showLoading(show) {
         if (!show) return;
         this.container.innerHTML = `
-            <div class="flex justify-center items-center py-12 h-96">
+            <div class="flex justify-center items-center py-12 h-[835px]">
                 <div class="animate-spin rounded-full h-24 w-24 border-b-2 border-blue-500"></div>
             </div>
         `;
@@ -137,7 +137,7 @@ export class UserTable {
 
     showError(message) {
         this.container.innerHTML = `
-            <div class="flex justify-center items-center py-12 h-96">
+            <div class="flex justify-center items-center py-12 h-[835px]">
                 <div class="text-center">
                     ${getIcon(IconNames.ERROR, 'mx-auto h-12 w-12 text-red-500 mb-4')}
                     <p class="text-red-600 font-semibold">${message}</p>

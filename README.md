@@ -11,7 +11,7 @@ A modular vanilla JavaScript application with Tailwind CSS that displays user da
 ## Usage
 
 1. **Browse Users**: Navigate through pages using pagination controls
-2. **Search**: Type in the search box to find users by name, email, username, or company
+2. **Search**: Type in the search box to find users by name, email, username
 3. **Sort**: Click column headers to sort by that field (server-side)
 4. **View Details**: Click any user row to see full details in a modal
 5. **Mock Actions**: Use Edit/Delete buttons in the modal (simulated actions)

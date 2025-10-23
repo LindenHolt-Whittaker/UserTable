@@ -17,8 +17,10 @@ export class AppLayout {
                             <h1 class="text-2xl font-bold text-gray-800">User Directory</h1>
                         </div>
                         <button id="refreshBtn" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 btn-transition flex items-center">
-                            ${getIcon(IconNames.REFRESH, 'w-4 h-4 mr-2')}
-                            Refresh
+                            ${getIcon(IconNames.REFRESH, 'w-4 h-4 sm:mr-2')}
+                            <span class="hidden sm:inline">
+                                Refresh
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -58,7 +60,7 @@ export class AppLayout {
                             <div class="mt-2 text-sm text-blue-700">
                                 <ul class="list-disc list-inside space-y-1">
                                     <li>Click on any user row to view detailed information</li>
-                                    <li>Use the search bar to filter users by name, email, username, or company</li>
+                                    <li>Use the search bar to filter users by name, email, username</li>
                                     <li>Click on column headers to sort the table</li>
                                     <li>In the user details modal, you can perform mock edit and delete actions</li>
                                     <li>Click the Refresh button to reload the user data</li>

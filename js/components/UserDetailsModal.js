@@ -163,17 +163,17 @@ export class UserDetailsModal {
                 </div>
 
                 <!-- Actions -->
-                <div class="bg-gray-50 px-6 py-4 flex justify-end space-x-3">
-                    <button class="btn-delete px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 btn-transition flex items-center">
-                        ${getIcon(IconNames.TRASH, 'w-4 h-4 mr-2')}
-                        Delete User
+                <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row md:justify-end space-y-3 md:space-y-0 md:space-x-3">
+                    <button class="modal-cancel px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 btn-transition">
+                        Cancel
                     </button>
-                    <button class="btn-edit px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 btn-transition flex items-center">
+                    <button class="btn-edit px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 btn-transition flex items-center justify-center md:justify-start">
                         ${getIcon(IconNames.EDIT, 'w-4 h-4 mr-2')}
                         Edit Details
                     </button>
-                    <button class="modal-cancel px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 btn-transition">
-                        Cancel
+                    <button class="btn-delete px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 btn-transition flex items-center justify-center md:justify-start">
+                        ${getIcon(IconNames.TRASH, 'w-4 h-4 mr-2')}
+                        Delete User
                     </button>
                 </div>
             </div>
