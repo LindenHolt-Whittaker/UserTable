@@ -47,7 +47,10 @@ export class AppLayout {
                 </div>
 
                 <!-- User Table Container -->
-                <div id="userTable" class="bg-white rounded-lg shadow-sm overflow-hidden fade-in"></div>
+                <div id="userTable" class="bg-white rounded-t-lg shadow-sm fade-in"></div>
+                
+                <!-- Pagination Container -->
+                <div id="pagination" class="bg-white border-t rounded-b-lg shadow-sm"></div>
 
                 <!-- Instructions -->
                 <div class="mt-8 bg-blue-50 border-l-4 border-blue-400 p-6 rounded-lg fade-in">
@@ -85,7 +88,7 @@ export class AppLayout {
         return {
             searchInput: document.getElementById('searchInput'),
             userTableContainer: document.getElementById('userTable'),
-            // loadingIndicator: document.getElementById('loadingIndicator'),
+            paginationContainer: document.getElementById('pagination'),
             refreshBtn: document.getElementById('refreshBtn'),
             statsContainer: document.getElementById('stats')
         };

@@ -74,8 +74,8 @@ export class Pagination {
         const showEllipsisEnd = pageNumbers[pageNumbers.length - 1] < this.totalPages;
 
         container.innerHTML = `
-            <nav class="flex items-center justify-between px-4 py-3 sm:px-6">
-                <div class="flex flex-1 justify-between sm:hidden">
+            <nav class="flex items-center justify-between px-4 py-3 md:px-6">
+                <div class="flex flex-1 justify-between md:hidden">
                     <button 
                         class="pagination-prev relative inline-flex items-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 ${this.currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}"
                         ${this.currentPage === 1 ? 'disabled' : ''}
@@ -92,7 +92,7 @@ export class Pagination {
                         Next
                     </button>
                 </div>
-                <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+                <div class="hidden md:flex md:flex-1 md:items-center md:justify-between">
                     <div>
                         <p class="text-sm text-gray-700">
                             Showing <span class="font-medium">${this.startIndex + 1}</span> to 
