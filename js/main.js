@@ -26,6 +26,7 @@ class UserDirectoryApp {
         const elements = this.layout.getElements();
         this.searchInput = elements.searchInput;
         this.userTableContainer = elements.userTableContainer;
+        this.paginationContainer = elements.paginationContainer;
         this.refreshBtn = elements.refreshBtn;
         this.statsContainer = elements.statsContainer;
         
@@ -141,14 +142,7 @@ class UserDirectoryApp {
     }
 
     renderPagination() {
-        let paginationContainer = document.getElementById('pagination-container');
-        if (!paginationContainer) {
-            paginationContainer = document.createElement('div');
-            paginationContainer.id = 'pagination-container';
-            paginationContainer.className = 'bg-white border-t';
-            this.userTableContainer.appendChild(paginationContainer);
-        }
-        this.pagination.render(paginationContainer);
+        this.pagination.render(this.paginationContainer);
     }
 
     handleUserClick(user) {

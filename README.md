@@ -2,7 +2,7 @@
 
 **[🔗 View Live Demo](https://lindenholt-whittaker.github.io/UserTable/)**
 
-A modular vanilla JavaScript application with Tailwind CSS that displays user data from DummyJSON API with pagination, search, and sorting capabilities.
+A responsive modular vanilla JavaScript application with Tailwind CSS that displays user data from DummyJSON API with pagination, search, and sorting capabilities.
 
 ![User Directory Screenshot 1](images/screenshot0.png)
 
@@ -12,7 +12,7 @@ A modular vanilla JavaScript application with Tailwind CSS that displays user da
 
 1. **Browse Users**: Navigate through pages using pagination controls
 2. **Search**: Type in the search box to find users by name, email, username
-3. **Sort**: Click column headers to sort by that field (server-side)
+3. **Sort**: Click column headers to sort by that field, or the sorting selection and button in mobile view
 4. **View Details**: Click any user row to see full details in a modal
 5. **Mock Actions**: Use Edit/Delete buttons in the modal (simulated actions)
 
